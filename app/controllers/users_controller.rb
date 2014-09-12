@@ -57,6 +57,6 @@ class UsersController < ApplicationController
 
 private
   def users_params
-    params.require(:user).permit(:name, :password, :password_confirmation)
+    params.require(:user).permit(:name, :password, :password_confirmation).merge(ip_address: request.remote_ip)
   end
 end
